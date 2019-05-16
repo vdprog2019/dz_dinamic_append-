@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>Document</title>
+
+    <style> 
+        
+        #div{
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            background-color: green;
+        }
+        
+    </style>
+
+</head>
+<body>
+  
+    <button id="create">create</button>
+    
+    <div id="div">
+    
+    </div>
+    
+    <script>
+            
+        var count_w = parseInt($("#div").css("width"))/3;
+        var count_h = parseInt($("#div").css("height"))/3;
+        
+        $("#create").click(function(){
+            
+            for( var i = 0; i < count_w; i++ ){
+                
+                    for( var j = 0; i < count_h; i++ ){
+                        $("#div").append("<div style='width:3px;heigth:3px; background-color: yellow;margin-top:1px;margin-left:1px'>"+i+"</div>");
+                    }
+            }
+            
+           
+        });
+    </script>
+
+
+</body>
+</html>
