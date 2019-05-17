@@ -14,6 +14,7 @@
             width: 40%;
             height: 40%;
             background-color: green;
+            user-select: none;
         }
         
     </style>
@@ -22,27 +23,56 @@
 <body>
   
     <button id="create">create</button>
-    
+    <input type="color" value="black" id="input_color">
     <div id="div">
     
     </div>
     
     <script>
             
-        var count_w = parseInt($("#div").css("width"))/3;
-        var count_h = parseInt($("#div").css("height"))/3;
+        var count_w =(parseInt($("#div").css("width"))/4);
+        var count_h = (parseInt($("#div").css("height"))/21);
+        var count = 0;
         
         $("#create").click(function(){
             
-            for( var i = 0; i < count_w; i++ ){
+            count++;
+            
+                $("#div").append("<h3 style='margin-left:33%;'>"+"холст номер "+ count +"</h3>");
+            for( var i = 0; i < count_h; i++ ){
                 
-                    for( var j = 0; i < count_h; i++ ){
-                        $("#div").append("<div style='width:3px;heigth:3px; background-color: yellow;margin-top:1px;margin-left:1px'>"+i+"</div>");
+                    for( var j = 0; j < count_w; j++ ){
+                        $("#div").append("<span style='width:3px;heigth:3px; background-color: yellow;margin-top:" + i +"px;margin-left:px'>&nbsp</span>");
                     }
+                 $("#div").append("<br/>");
             }
             
-           
+             
+            /*$("span").hover( function(){
+                //alert("et");
+                $(this).css("background-color","red");
+            } );
+            */
+            
+            $("span").click(function(){
+                $(this).css("background-color", $("#input_color").val());   
+            });
+            
+            $("span").dblclick(function(){
+               
+               $(this).css ("background-color","yellow");
+            });
+
+            
+            $("#div").css("border","solid","2px");
+         
+        
+            
+            
+            
         });
+        
+      
     </script>
 
 
